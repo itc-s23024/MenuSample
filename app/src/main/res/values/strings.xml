@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MenuSample</string>
+    <string name="tv_menu_unit">Yen</string>
+    <string name="menu_list_options_teishoku">Set meal</string>
+    <string name="menu_list_options_curry">Curry</string>
+    <string name="menu_list_context_desc">Show description</string>
+    <string name="menu_list_context_order">Order</string>
+    <string name="menu_list_context_header">Choose your operation.</string>
+    <string name="tv_thx_title">Order completed</string>
+    <string name="tv_thx_desc">The following menu items have been order.\nThank you for your order.</string>
+    <string name="bt_thx_back">Back to list</string>
+</resources>

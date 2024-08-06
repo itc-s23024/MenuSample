@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Karaage fried chicken set meal",
+    "price": 800,
+    "desc": "Deep-fried young chicken, served with salad, rice and miso soup."
+  },
+  {
+    "id": 2,
+    "name": "Hamburger steak set meal",
+    "price": 850,
+    "desc": "Hand-kneaded hamburger steak, served with salad, rice and miso soup."
+  },
+  {
+    "id": 3,
+    "name": "Ginger pork set meal",
+    "price": 850,
+    "desc": "Pork with grated ginger, served with salad, rice and miso soup."
+  },
+  {
+    "id": 4,
+    "name": "Steak set meal",
+    "price": 1000,
+    "desc": "Japanese beef steak, served with salad, rice and miso soup."
+  },
+  {
+    "id": 5,
+    "name": "Vegetable stir-fry set meal",
+    "price": 750,
+    "desc": "Stir-fried seasonal vegetables, served with salad, rice and miso soup."
+  },
+  {
+    "id": 6,
+    "name": "Tonkatsu set meal",
+    "price": 900,
+    "desc": "Loin tonkatsu, served with salad, rice and miso soup."
+  },
+  {
+    "id": 7,
+    "name": "Minced pork cutlet set meal",
+    "price": 850,
+    "desc": "Hand-kneaded minced pork cutlets, served with salad, rice and miso soup."
+  },
+  {
+    "id": 8,
+    "name": "Chicken cutlet set meal",
+    "price": 900,
+    "desc": "A hearty chicken cutlet, served with salad, rice and miso soup."
+  },
+  {
+    "id": 9,
+    "name": "Potato croquette set meal",
+    "price": 850,
+    "desc": "Hokkaido potato croquettes, served with salad, rice and miso soup."
+  },
+  {
+    "id": 10,
+    "name": "Twice-cooked pork set meal",
+    "price": 750,
+    "desc": "Spicy twice-cooked pork, served with salad, rice and miso soup."
+  },
+  {
+    "id": 11,
+    "name": "Mapo tofu set meal",
+    "price": 800,
+    "desc": "Authentic Sichuan-style mapo tofu, served with salad, rice and miso soup."
+  },
+  {
+    "id": 12,
+    "name": "Chinese Pepper steak",
+    "price": 900,
+    "desc": "Fragrant Green Pepper and Shredded Pork Stir-fry, served with salad, rice and miso soup."
+  },
+  {
+    "id": 13,
+    "name": "Happosai (eight treasure soup) set meal",
+    "price": 800,
+    "desc": "Happosai featuring a soup full of vegetables and seafood, served with salad, rice and miso soup."
+  },
+  {
+    "id": 14,
+    "name": "Sweet-and-sour pork set meal",
+    "price": 850,
+    "desc": "A large piece of meat stands out in a sweet-and-sour pork dish, served with salad, rice and miso soup."
+  },
+  {
+    "id": 15,
+    "name": "Braised pork cubes set meal",
+    "price": 850,
+    "desc": "Long-cooked braised pork cubes, served with salad, rice and miso soup."
+  },
+  {
+    "id": 16,
+    "name": "Yakitori set meal",
+    "price": 900,
+    "desc": "Yuzu pepper-scented grilled chicken, served with salad, rice and miso soup."
+  },
+  {
+    "id": 17,
+    "name": "Grilled fish set meal",
+    "price": 850,
+    "desc": "Spanish mackerel grilled, served with salad, rice and miso soup."
+  },
+  {
+    "id": 18,
+    "name": "Yakiniku grilled meat set meal",
+    "price": 950,
+    "desc": "Grilled meat with special sauce, served with salad, rice and miso soup."
+  }
+]

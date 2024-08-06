@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Pork Curry",
+    "price": 420,
+    "desc": "Curry made with 100% Japanese pork and specially selected spice."
+  },
+  {
+    "id": 2,
+    "name": "Hamburger steak Curry",
+    "price": 620,
+    "desc": "Curry made with specially selected spice, topped with hand-kneaded hamburger steak."
+  },
+  {
+    "id": 3,
+    "name": "Cheese Curry",
+    "price": 560,
+    "desc": "Curry made with specially selected spice, topped with melted cheese."
+  },
+  {
+    "id": 4,
+    "name": "Katsu Curry",
+    "price": 760,
+    "desc": "Curry made with specially selected spice, topped with Tonkatsu."
+  },
+  {
+    "id": 5,
+    "name": "Beef cutlet Curry",
+    "price": 880,
+    "desc": "Curry made with specially selected spice, topped with Japanese beef cutlet."
+  },
+  {
+    "id": 6,
+    "name": "Karaage Curry",
+    "price": 540,
+    "desc": "Curry made with specially selected spice, topped with Karaage."
+  }
+]
