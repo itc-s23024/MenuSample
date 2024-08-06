@@ -12,18 +12,32 @@ class FoodMenuAdapter(
     private val onItemSelected: (item: FoodMenu) -> Unit
 ) : RecyclerView.Adapter<FoodMenuAdapter.ViewHolder>() {
 
+    var  currentItem: FoodMenu? = null
+        private set
+
     // RecyclerView が表示時に使う1件分のデータを表示するためのビューを管理するクラス
     // 必ず RecyclerView.ViewHolder を継承する必要がある。
     // ViewBinding と役割が似ているので、 可能な限り ViewBingding に乗っかった形で実装したパターン。
     class ViewHolder(private  val binding: SetMealRowBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: FoodMenu, callback: (item: FoodMenu) -> Unit) {
+        var onItemClick: (item: FoodMenu) -> Unit = {}
+        var onItemLongClick: (item: FoodMenu) -> Unit = {}
+
+        fun bind(item: FoodMenu) {
             binding.name.text = item.name
             binding.price.text = item.price.toString()
             binding.root.setOnClickListener{
-                // アイテム(定食)がタップされたらここが呼ばれる
-                callback(item)
+                // アダプタにコールバック
+                onItemClick(item)
+            }
+
+            binding.root.setOnLongClickListener {
+                // アダプタにコールバック
+                onItemLongClick(item)
+                // ここで　true を返してイベントが完結すると、
+                // アクティビティ側でコンテキストメニューが出ません。
+                false
             }
         }
     }
@@ -32,9 +46,13 @@ class FoodMenuAdapter(
     // 一度作られた ViewHolder は使い回すので、 一定回数呼ばれたらそれ以上は呼ばれない。
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // parent(ConstraintLayout)の中に詰まっているアプリ情報を基に、layoutInflater を取り出す
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = SetMealRowBinding.inflate(layoutInflater, parent,false)
-        return ViewHolder(binding)
+        val inflater = LayoutInflater.from(parent.context)
+        return ViewHolder(SetMealRowBinding.inflate(inflater,  parent, false)).apply {
+            onItemClick = onItemSelected
+            onItemLongClick = { item ->
+                currentItem = item
+            }
+        }
     }
 
     // 要素数を返すメソッド
@@ -43,7 +61,6 @@ class FoodMenuAdapter(
     // 用意が整った ViewHolder へ実際にデータを反映させるタイミングで呼ばれるメソッド
     // パラメータの position に何番目のデータを表示するべきかの値が渡される。
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = data[position]
-        holder.bind(item, onItemSelected)
+        holder.bind(data[position])
     }
 }
