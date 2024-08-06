@@ -6,6 +6,7 @@ import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var setMealList: List<FoodMenu>
     private lateinit var curryList: List<FoodMenu>
     private val foodMenuList = mutableListOf<FoodMenu>()
+    private val adapter = FoodMenuAdapter(foodMenuList, ::order)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,20 +58,8 @@ class MainActivity : AppCompatActivity() {
                 DividerItemDecoration(this@MainActivity, manager.orientation)
             )
             //　アダプタ
-            adapter = FoodMenuAdapter(foodMenuList) { item ->
-                val menuName = item.name
-                val menuPrice = item.price
-                // Intentオブジェクトを作る
-                val intent2MenuThanks = Intent(
-                    this@MainActivity,
-                    MenuThanksActivity::class.java
-                )
-                intent2MenuThanks.putExtra("menuName", menuName)
-                intent2MenuThanks.putExtra("menuPrice", menuPrice)
+            adapter = this@MainActivity.adapter
 
-                // 注文完了画面を起動
-                startActivity(intent2MenuThanks)
-            }
             // RecyclerView でコンテキストメニューを有効化する
             registerForContextMenu(this)
         }
@@ -120,5 +110,41 @@ class MainActivity : AppCompatActivity() {
         super.onCreateContextMenu(menu, v, menuInfo)
         menuInflater.inflate(R.menu.menu_context_menu_list, menu)
         menu?.setHeaderTitle(R.string.menu_list_context_header)
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menuListContextDesc -> {
+                // 「詳細を表示」メニューが選ばれた
+                adapter.currentItem?.let(::showDescription)
+                true
+            }
+
+            R.id.menuListContextOrder -> {
+                // 「ご注文」メニューが選ばれた
+                adapter.currentItem?.let(::order)
+                                  //.let { order(it) }
+                true
+            }
+
+            else -> super.onContextItemSelected(item)
+        }
+    }
+    private fun order(item: FoodMenu) {
+        val menuName = item.name
+        val menuPrice = item.price
+        // Intentオブジェクトを作る
+        val intent2MenuThanks = Intent(
+            this@MainActivity,
+            MenuThanksActivity::class.java
+        )
+        intent2MenuThanks.putExtra("menuName", menuName)
+        intent2MenuThanks.putExtra("menuPrice", menuPrice)
+
+        // 注文完了画面を起動
+        startActivity(intent2MenuThanks)
+    }
+    private fun showDescription(item: FoodMenu) {
+       Toast.makeText(this, item.desc, Toast.LENGTH_LONG).show()
     }
 }
